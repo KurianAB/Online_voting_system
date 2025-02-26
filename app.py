@@ -227,23 +227,17 @@ def get_vote_analysis():
         "total_votes": total_votes,
         "candidate_votes": candidate_votes
     })
-
-
-
-# Route: Clear Database
 @app.route('/clear_db', methods=['POST'])
 def clear_db():
     try:
         conn = get_db_connection()
         cursor = conn.cursor()
-        cursor.execute("DELETE FROM votes")  # Clear all votes
+        cursor.execute("DELETE FROM votes")  # Clears the "votes" table
         conn.commit()
         conn.close()
-        print("true")
         return jsonify({"success": True, "message": "All votes have been cleared!"})
     except Exception as e:
         return jsonify({"success": False, "error": str(e)})
-
 
 
 if __name__ == '__main__':
