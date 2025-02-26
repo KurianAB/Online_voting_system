@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Admin Panel</h1>
+        <div class="tabs">
+            <button class="tab-link active" onclick="openTab(event, 'generate-code')">Generate Code</button>
+            <button class="tab-link" onclick="openTab(event, 'voting')">Voting</button>
+            <button class="tab-link" onclick="openTab(event, 'rating')">Rating</button>
+            <button class="tab-link" onclick="openTab(event, 'analysis')">Analysis</button>
+            <button class="tab-link" onclick="openTab(event, 'clear-db')">Clear DB</button>
+        </div>
+
+        <div id="generate-code" class="tab-content active">
+            <h2>Generate Code</h2>
+            <button onclick="generateCode()">Generate Code</button>
+            <p id="generated-code"></p>
+        </div>
+
+        <div id="voting" class="tab-content" >
+            <h2>Voting Setup</h2>
+            
+            <label for="session-name">Enter Voting Session Name:</label>
+            <input type="text" id="session-name" placeholder="Session Name" required>
+            
+            <label for="num-candidates">Select Number of Candidates:</label>
+            <select id="num-candidates">
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+            
+            <div id="candidate-list"></div>
+            
+            <button id="start-voting">Start Voting</button>
+            <button id="stop-voting" disabled>Stop Voting</button>
+            
+            <p id="voting-message" style="display: none; color: green;">Voting session has started!</p>
+        </div>
+        
+
+        <div id="rating" class="tab-content">
+            <h2>Rating</h2>
+            <p>Rating session setup coming soon...</p>
+        </div>
+
+        <div id="analysis" class="tab-content">
+            <h2>Analysis</h2>
+            <p>Session analysis will be displayed here.</p>
+        </div>
+
+        <div id="clear-db" class="tab-content">
+            <h2>Clear Database</h2>
+            <button onclick="clearDatabase()">Clear Database</button>
+            <p id="db-message"></p>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
