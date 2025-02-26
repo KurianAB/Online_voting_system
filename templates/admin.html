@@ -52,17 +52,51 @@
         </div>
 
         <div id="analysis" class="tab-content">
-            <h2>Analysis</h2>
-            <p>Session analysis will be displayed here.</p>
+            <h2>VOTING Analysis</h2>
+            <button id="getAnalysisBtn">Get Vote Analysis</button>
+            <div id="analysisResult"></div>
         </div>
 
-        <div id="clear-db" class="tab-content">
+        <div id="clear-db-section">
             <h2>Clear Database</h2>
-            <button onclick="clearDatabase()">Clear Database</button>
-            <p id="db-message"></p>
+            <button id="clearDbBtn">Clear Votes</button>
+            <p id="clearDbMsg"></p>
         </div>
     </div>
 
     <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const clearBtn = document.getElementById("clearDbBtn");
+        
+            if (clearBtn) {
+                clearBtn.addEventListener("click", function() {
+                    if (!confirm("Are you sure you want to clear all votes? This action cannot be undone.")) return;
+        
+                    fetch("/clear_db", {
+                        method: "POST"
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        const messageElement = document.getElementById("clearDbMsg");
+                        if (data.success) {
+                            messageElement.textContent = data.message;
+                            messageElement.style.color = "green";  // Success message color
+                        } else {
+                            messageElement.textContent = "Error: " + data.error;
+                            messageElement.style.color = "red";  // Error message color
+                        }
+                    })
+                    .catch(error => {
+                        document.getElementById("clearDbMsg").textContent = "Error clearing database.";
+                        console.error(error);
+                    });
+                });
+            } else {
+                console.error("Clear DB button not found!");
+            }
+        });
+        </script>
+        
 </body>
 </html>

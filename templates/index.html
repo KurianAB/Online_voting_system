@@ -1,14 +1,13 @@
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Voter Login</title>
+    <title>Login - Vote</title>
 </head>
 <body>
-    <h1>Enter Your Voting Code</h1>
+    <h2>Enter Your Voter Code</h2>
     <form method="POST">
-        <input type="text" name="code" placeholder="Enter Code" required>
-        <button type="submit">Enter</button>
+        <input type="text" name="code" placeholder="Enter 6-digit code" required>
+        <button type="submit">Login</button>
     </form>
     {% if error %}
         <p style="color:red;">{{ error }}</p>

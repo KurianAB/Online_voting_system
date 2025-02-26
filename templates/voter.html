@@ -1,13 +1,55 @@
-<div id="voter-panel">
-    <h2>Voter Panel</h2>
-    <label for="voter-code">Enter Code:</label>
-    <input type="text" id="voter-code" placeholder="6-Digit Code">
-    <button id="check-code">Enter</button>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Vote</title>
+</head>
+<body>
+    <h2>Voting Session: {{ session_name }}</h2>
+    
+    <form id="voteForm">
+        <input type="hidden" name="session_id" value="{{ session_id }}">
+        <input type="hidden" name="voter_code" value="{{ voter_code }}">
+        
+        {% for candidate in candidates %}
+            <label>
+                <input type="radio" name="candidate" value="{{ candidate }}" required> {{ candidate }}
+            </label><br>
+        {% endfor %}
+        
+        <button type="submit">Submit Vote</button>
+    </form>
 
-    <div id="vote-section" style="display: none;">
-        <h3>Vote for a Candidate</h3>
-        <div id="candidate-buttons"></div>
-    </div>
+    <p id="message"></p>
 
-    <p id="status-message">Voting session has not begun.</p>
-</div>
+    <script>
+        document.getElementById("voteForm").onsubmit = function(event) {
+            event.preventDefault();
+            const formData = new FormData(this);
+
+            const jsonData = {
+        code: formData.get("voter_code"),    // Extract voter code
+        session_id: formData.get("session_id"),  // Extract session ID
+        candidate: formData.get("candidate") // Extract selected candidate
+    };
+
+    console.log("Sending JSON Data:", jsonData);  // Debugging step
+
+
+            fetch("/vote", {
+                method: "POST",
+                body: JSON.stringify(jsonData),
+                headers: { "Content-Type": "application/json" }
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    document.getElementById("message").innerText = "Your vote has been recorded.";
+                    document.getElementById("voteForm").style.display = "none";
+                } else {
+                    document.getElementById("message").innerText = data.error;
+                }
+            });
+        };
+    </script>
+</body>
+</html>
