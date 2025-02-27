@@ -2,18 +2,23 @@
 function openTab(evt, tabName) {
     let tabcontent = document.getElementsByClassName("tab-content");
     for (let i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
+        tabcontent[i].style.display = "none";  // Hide all tab content
     }
+    
     let tablinks = document.getElementsByClassName("tab-link");
     for (let i = 0; i < tablinks.length; i++) {
         tablinks[i].classList.remove("active");
     }
-    document.getElementById(tabName).style.display = "block";
+    
+    document.getElementById(tabName).style.display = "block"; // Show selected tab
     evt.currentTarget.classList.add("active");
 }
 
-// Show default tab
-document.getElementById("generate-code").style.display = "block";
+// Show default tab (Generate Code) on page load
+document.addEventListener("DOMContentLoaded", function () {
+    document.getElementsByClassName("tab-link")[0].click();
+});
+
 
 // Generate Code Function
 function generateCode() {
