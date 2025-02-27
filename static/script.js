@@ -159,27 +159,6 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         });
     });
-
-    document.getElementById("clearDbBtn").addEventListener("click", function() {
-        if (!confirm("Are you sure you want to clear all votes? This action cannot be undone.")) return;
-    
-        fetch("/clear_db", {
-            method: "POST"
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.success) {
-                document.getElementById("clearDbMsg").textContent = "Database cleared successfully!";
-            } else {
-                document.getElementById("clearDbMsg").textContent = "Error: " + data.error;
-            }
-        })
-        .catch(error => {
-            document.getElementById("clearDbMsg").textContent = "Error clearing database.";
-            console.error(error);
-        });
-    });
-    
 });
 
 
