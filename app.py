@@ -87,7 +87,7 @@ def index_route():
 
 
 # ✅ Route: Admin Panel
-@app.route('/admin')
+@app.route('/rgaheruikgbyaeurygabo')
 def admin_panel():
     return render_template('admin.html')
 
@@ -130,11 +130,15 @@ def start_voting():
 def stop_voting():
     conn = sqlite3.connect("voting.db")
     cursor = conn.cursor()
-    cursor.execute("UPDATE voting_sessions SET active = 0")
+
+    # Update only the currently active session
+    cursor.execute("UPDATE voting_sessions SET active = 0 WHERE active = 1")
+
     conn.commit()
     conn.close()
     
     return jsonify({"success": True})
+
 
 @app.route("/check_voting_status")
 def check_voting_status():

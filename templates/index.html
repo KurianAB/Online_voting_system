@@ -1,16 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Login - Vote</title>
+    <title>Voter Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'JetBrains Mono', monospace;
+            background-color: #121212;
+            color: #ffffff;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            width: 100%;
+        }
+
+        /* Global Header */
+        .header {
+            width: 100%;
+            background-color: #404040; /* Orange Accent */
+            padding: 15px 0;
+            text-align: center;
+            font-size: 22px;
+            font-weight: bold;
+            color: #ffffff;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Centering the Card */
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-grow: 1;
+            width: 100%;
+        }
+
+        .card {
+            background-color: #1E1E1E;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
+            width: 340px;
+            text-align: center;
+        }
+
+        h2 {
+            color: #ffffff;
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        input, button {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            border-radius: 4px;
+            font-family: 'JetBrains Mono', monospace;
+            text-align: center;
+        }
+
+        input {
+            border: 2px solid #EFCB44; /* Orange Accent */
+            background-color: #2C2C2C;
+            color: #ffffff;
+            outline: none;
+            margin-bottom: 10px;
+        }
+
+        input::placeholder {
+            color: #b0b0b0;
+        }
+
+        button {
+            background-color: #EFCB44; /* Orange Accent */
+            border: none;
+            color: #000000;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #ED632A; /* Yellow Accent */
+            color: #000000;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 400px) {
+            .card {
+                width: 90%;
+                padding: 15px;
+            }
+
+            .header {
+                font-size: 18px;
+                padding: 12px 0;
+            }
+
+            input, button {
+                font-size: 14px;
+                padding: 10px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <h2>Enter Your Voter Code</h2>
-    <form method="POST">
-        <input type="text" name="code" placeholder="Enter 6-digit code" required>
-        <button type="submit">Login</button>
-    </form>
-    {% if error %}
-        <p style="color:red;">{{ error }}</p>
-    {% endif %}
+
+    <div class="header">RAMJI RAO SPEAKING</div>
+
+    <div class="container">
+        <div class="card">
+            <h2>Enter Your Voting Code</h2>
+            <form  method="post">
+                <input type="text" name="code" required placeholder="Enter 6-digit code">
+                <button type="submit">Enter</button>
+            </form>
+        </div>
+    </div>
+
 </body>
 </html>
