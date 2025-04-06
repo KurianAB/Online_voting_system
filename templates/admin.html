@@ -5,6 +5,134 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Panel</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        /* Dark theme with JetBrains Mono font */
+        body {
+            font-family: 'JetBrains Mono', monospace;
+            background-color: #1E1E1E;
+            color: #EFCB44;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* Container for content */
+        .container {
+            background: #252526;
+            padding: 20px;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 800px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+        }
+
+        /* Header */
+        h1 {
+            text-align: center;
+            color: #FFD700;
+        }
+
+        /* Tabs Styling */
+        .tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .tab-link {
+            background: transparent;
+            border: 2px solid #EFCB44;
+            color: #EFCB44;
+            padding: 10px 15px;
+            margin: 0 5px;
+            cursor: pointer;
+            transition: 0.3s;
+            border-radius: 5px;
+        }
+
+        .tab-link:hover, .tab-link.active {
+            background: #EFCB44;
+            color: #1E1E1E;
+        }
+
+        /* Tab Content */
+        .tab-content {
+            display: none;
+            background: #333;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Buttons */
+        button {
+            background: #EFCB44;
+            border: none;
+            color: #1E1E1E;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #FFD700;
+        }
+
+        /* Input fields */
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #EFCB44;
+            background: #2D2D2D;
+            color: #EFCB44;
+            border-radius: 5px;
+        }
+
+        /* Voting Message */
+        #voting-message {
+            font-weight: bold;
+            text-align: center;
+            color: green;
+        }
+
+        /* Clear DB Section */
+        #clear-db {
+            text-align: center;
+        }
+
+        #clearDbBtn {
+            background: red;
+            color: white;
+        }
+
+        #clearDbBtn:hover {
+            background: darkred;
+        }
+        #generate-code {
+        font-size: 48px;
+        font-weight: bold;
+        color: #FFD700;
+        margin-top: 20px;
+        background: #333;
+        padding: 80px;
+        border-radius: 10px;
+        display: none;
+        width: fit-content;
+        margin: 50px auto 0;
+        border: 3px solid #FFD700;
+    }
+
+
+    </style>
 </head>
 <body>
     <div class="container">
@@ -17,7 +145,6 @@
         </div>
 
         <div id="generate-code" class="tab-content active">
-            <h2>Generate Code</h2>
             <button onclick="generateCode()">Generate Code</button>
             <p id="generated-code"></p>
         </div>
@@ -30,6 +157,7 @@
             
             <label for="num-candidates">Select Number of Candidates:</label>
             <select id="num-candidates">
+                <option value="" disabled selected>Select</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
                 <option value="4">4</option>

@@ -25,7 +25,7 @@ function generateCode() {
     fetch('/generate_code', { method: 'POST' })
         .then(response => response.json())
         .then(data => {
-            document.getElementById("generated-code").textContent = "Generated Code: " + data.code;
+            document.getElementById("generated-code").textContent =  data.code;
         });
 }
 
