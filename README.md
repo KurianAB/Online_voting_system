@@ -28,14 +28,13 @@ To run the project locally:
 1. Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/your-repo-name.git
-cd your-repo-name
+git clone https://github.com/KurianAB/Online_voting_system.git
+cd Online_voting_system
 ```
 2. Set Up Virtual Environment (Recommended)
 
 ```bash
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
+venv\Scripts\activate.bat
 ```
 3. Install Dependencies
 ```bash
@@ -51,7 +50,7 @@ python app.py
 ## Usage
 
 - **Admin Panel**
-  - Navigate to */admin*
+  - Navigate to */rgaheruikgbyaeurygabo* (Admin Panel)
   - Generate codes, start/stop sessions, and view session-wise analysis
 - **Voter Panel**:
   - Voter enters their unique 6-digit alphanumeric code on the homepage (/)
@@ -72,13 +71,7 @@ python app.py
 
 **User**
 
-![Logiin using Unique Code](https://github.com/KurianAB/Online_voting_system/blob/main/9dc43d95.jpg)
-
-![Cast Vote](https://github.com/KurianAB/Online_voting_system/blob/main/b2081244.jpg)
-
-![Confirmation Screen](https://github.com/KurianAB/Online_voting_system/blob/main/6e8cf69d.jpg)
-
-
+![UserView](https://github.com/KurianAB/Online_voting_system/blob/main/UserView.png)
 
 ## Use Cases
 
