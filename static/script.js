@@ -51,7 +51,7 @@ document.getElementById("getAnalysisBtn").addEventListener("click", function() {
                 let votes = data.candidate_votes[candidate].votes;
                 let percentage = totalVotes > 0 ? ((votes / totalVotes) * 100).toFixed(2) : 0;
 
-                resultsHTML += `<li>${candidate}: ${votes} votes (${percentage}%)</li>`;
+                resultsHTML += `<div>${candidate}: ${votes} votes (${percentage}%)</div>`;
 
                 // Determine winner(s)
                 if (votes > highestVotes) {
