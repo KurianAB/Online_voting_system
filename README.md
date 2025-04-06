@@ -7,17 +7,17 @@ A lightweight, secure, and user-friendly online voting platform built using Flas
 
 ## Features
 
-- 🔐 **Unique Code-Based Voter Login**
-- 🧑‍💼 **Admin Dashboard** with:
+- **Unique Code-Based Voter Login**
+- **Admin Dashboard** with:
   - Generate unique 6-digit codes for voters
   - Create and manage Voting sessions
   - Real-time session control (start/stop)
   - Post-session analysis
-- 📊 **Voting Mode**:
+- **Voting Mode**:
   - Vote for one among multiple candidates
   - Automatic winner calculation
-- 🗂️ **Analysis Storage** for all past sessions
-- 💾 **Built using:** Flask, SQLite, HTML, CSS, and JavaScript
+- **Analysis Storage** for all past sessions
+- **Built using:** Flask, SQLite, HTML, CSS, and JavaScript
 
 
 
@@ -50,10 +50,10 @@ python app.py
 
 ## Usage
 
-- 🧑‍💼 **Admin Panel**
+- **Admin Panel**
   - Navigate to */admin*
   - Generate codes, start/stop sessions, and view session-wise analysis
-- 🗳️ **Voter Panel**:
+- **Voter Panel**:
   - Voter enters their unique 6-digit alphanumeric code on the homepage (/)
   - If a session is active, Voter selects a candidate and submits their vote
   - After submission, a confirmation message is shown
