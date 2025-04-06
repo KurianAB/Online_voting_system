@@ -35,6 +35,7 @@ cd Online_voting_system
 - For windows
 
 ```bash
+python -m venv venv
 venv\Scripts\activate.bat
 ```
 - For Linux
