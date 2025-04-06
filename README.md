@@ -63,7 +63,7 @@ python app.py
 
 ![Generate Unique Code](https://github.com/KurianAB/Online_voting_system/blob/main/Screenshots/Screenshot231500.png)
 
-![Start a Voting Session](https://github.com/KurianAB/Online_voting_system/blob/main/Screenshot231510.png)
+![Start a Voting Session](https://github.com/KurianAB/Online_voting_system/blob/main/Screenshots/Screenshot231510.png)
 
 ![Fetch Analysis](https://github.com/KurianAB/Online_voting_system/blob/main/Screenshots/Screenshot231447.png)
 
