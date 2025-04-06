@@ -32,9 +32,16 @@ git clone https://github.com/KurianAB/Online_voting_system.git
 cd Online_voting_system
 ```
 2. Set Up Virtual Environment (Recommended)
+- For windows
 
 ```bash
 venv\Scripts\activate.bat
+```
+- For Linux
+
+```bash
+python -m venv venv
+source venv/bin/activate 
 ```
 3. Install Dependencies
 ```bash
